@@ -60,11 +60,14 @@ public class PostServiceImplements implements PostService {
 		// TODO Auto-generated method stub
 		Post post=this.postRepo.findById(postId)
 				.orElseThrow(()-> new ResourceNotFoundException("Post", "post Id",postId));
-		Post post1=this.modelMapper.map(postDto, Post.class);
-		post1.setImageName("default.png");
-		post1.setAddedDate(new Date());
+		post.setTitle(postDto.getTitle());
+		post.setContent(postDto.getContent());
+		post.setImageName(postDto.getImageName());
 		
-		return null; 
+		Post updatedPost=this.postRepo.save(post);
+		return this.modelMapper.map(updatedPost, PostDto.class);
+		
+		
 	}
 
 	@Override

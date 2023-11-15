@@ -36,12 +36,11 @@ public class PostServiceImplements implements PostService {
 	private CategoryRepo categoryRepo;
 	@Override
 	public PostDto createPost(PostDto postDto, Integer userId, Integer categoryId) {
-		// TODO Auto-generated method stub
-		//User user=this.userRepo.findById(userID).orElseThrow(()->new ResourceNotFoundException("User", "user id", userID));
+		
 		User user=this.userRepo.findById(userId).
 				orElseThrow(()->new ResourceNotFoundException("User", "id", userId));
 		
-		//Category category=this.categoryRepo.findById(categoryId).orElseThrow(()->new ResourceNotFoundException("Category", "categoruy id", categoryId));
+		
 		Category cat=this.categoryRepo.findById(categoryId).
 				orElseThrow(()->new ResourceNotFoundException("category", "category Id", categoryId));
 		
@@ -61,7 +60,7 @@ public class PostServiceImplements implements PostService {
 
 	@Override
 	public PostDto updatePost(PostDto postDto, Integer postId) {
-		// TODO Auto-generated method stub
+	
 		Post post=this.postRepo.findById(postId)
 				.orElseThrow(()-> new ResourceNotFoundException("Post", "post Id",postId));
 		post.setTitle(postDto.getTitle());
@@ -76,7 +75,7 @@ public class PostServiceImplements implements PostService {
 
 	@Override
 	public void deletePost(Integer postId) {
-		// TODO Auto-generated method stub
+	
 		Post post=this.postRepo.findById(postId).orElseThrow(()-> new ResourceNotFoundException("Post", "post Id", postId));
 		this.postRepo.delete(post);
 		
@@ -86,7 +85,7 @@ public class PostServiceImplements implements PostService {
 
 	@Override
 	public PostResponse getAllPost(Integer pageNumber,Integer pageSize) {
-		// TODO Auto-generated method stub
+		
 
 		Pageable p=PageRequest.of(pageNumber, pageSize);
 		Page<Post> pagePost=this.postRepo.findAll(p);
@@ -142,7 +141,7 @@ public class PostServiceImplements implements PostService {
 	//sorting the posts
 	@Override
 	public List<Post> searchPost(String keyword) {
-		// TODO Auto-generated method stub
+
 		return null;
 	}
 

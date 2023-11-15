@@ -1,12 +1,17 @@
 package com.example.demo.ServiceImpl;
 
 
+
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Exceptions.ResourceNotFoundException;
@@ -18,8 +23,6 @@ import com.example.demo.Services.PostService;
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Post;
 import com.example.demo.entities.User;
-
-import net.bytebuddy.asm.Advice.This;
 @Service
 public class PostServiceImplements implements PostService {
 	@Autowired
@@ -79,11 +82,26 @@ public class PostServiceImplements implements PostService {
 	}
 
 	@Override
-	public List<PostDto> getAllPost() {
+	public List<PostDto> getAllPost(Integer pageNumber,Integer pageSize) {
 		// TODO Auto-generated method stub
-		List<Post> allPosts=this.postRepo.findAll();
+		/*PageRequest p=PageRequest.of(pageNumber, pageSize);
+		List<Post> pagePost=this.postRepo.findAll(p);
+		List<Post> allPost=pagePost.getContent();
+		List<PostDto> postDtos=allPosts.stream().
+				map((allPost)-> this.modelMapper.map(allPost, PostDto.class)).collect(Collectors.toList());*/
+		Pageable p=PageRequest.of(pageNumber, pageSize);
+		
+		
+		
+		
+		
+		
+		Page<Post> pagePost=this.postRepo.findAll(p);
+		List<Post> allPosts=pagePost.getContent();
+		
 		List<PostDto> postDtos=allPosts.stream().
 				map((allPost)-> this.modelMapper.map(allPost, PostDto.class)).collect(Collectors.toList());
+		
 		return postDtos;
 	}
 
@@ -122,6 +140,9 @@ public class PostServiceImplements implements PostService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	
 
 	
 

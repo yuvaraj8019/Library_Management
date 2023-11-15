@@ -3,6 +3,7 @@ package com.example.demo.Services;
 import java.util.List;
 
 import com.example.demo.Payloads.PostDto;
+import com.example.demo.Payloads.PostResponse;
 import com.example.demo.entities.Post;
 
 public interface PostService {
@@ -17,7 +18,7 @@ public interface PostService {
 	void deletePost(Integer postid);
 	
 	//Get all Posts
-	List<PostDto> getAllPost();
+	PostResponse getAllPost(Integer pageNumber,Integer pageSize);
 	
 	//Get Post By Id
 	PostDto getPostById(Integer postId);

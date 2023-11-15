@@ -85,7 +85,7 @@ public class PostController {
 		return new ResponseEntity<ApiResponse>(new ApiResponse("post deleted successful",true),HttpStatus.OK);
 	}
 	
-	//Update post vsvsf
+	//Update post 
 	@PostMapping("post/update/{postId}")
 	public ResponseEntity<PostDto> updatePost(@RequestBody PostDto postDto,@PathVariable Integer postId){
 		PostDto updatePost=this.postService.updatePost(postDto, postId);

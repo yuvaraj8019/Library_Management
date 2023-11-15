@@ -81,6 +81,8 @@ public class PostServiceImplements implements PostService {
 		this.postRepo.delete(post);
 		
 	}
+	
+	//pagination implemented
 
 	@Override
 	public PostResponse getAllPost(Integer pageNumber,Integer pageSize) {
@@ -109,7 +111,7 @@ public class PostServiceImplements implements PostService {
 
 	@Override
 	public PostDto getPostById(Integer postId) {
-		// TODO Auto-generated method stub
+		
 		Post post=this.postRepo.findById(postId)
 				.orElseThrow(()-> new ResourceNotFoundException("Post", "post Id",postId));
 		return this.modelMapper.map(post, PostDto.class);
@@ -117,7 +119,7 @@ public class PostServiceImplements implements PostService {
 
 	@Override
 	public List<PostDto> getPostByUser(Integer userId) {
-		// TODO Auto-generated method stub
+	
 		User user=this.userRepo.findById(userId).
 				orElseThrow(()->new ResourceNotFoundException("User", "user Id", userId));
 		List<Post> posts=this.postRepo.findAllByUser(user);
@@ -128,7 +130,7 @@ public class PostServiceImplements implements PostService {
 
 	@Override
 	public List<PostDto> getPostByCategory(Integer categoryId) {
-		// TODO Auto-generated method stub
+		
 		Category cat=this.categoryRepo.findById(categoryId).
 				orElseThrow(()->new ResourceNotFoundException("Category", "category id", categoryId));
 		List<Post> posts= this.postRepo.findByCategory(cat);

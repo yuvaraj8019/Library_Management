@@ -89,10 +89,10 @@ public class PostServiceImplements implements PostService {
 
 	@Override
 	public PostResponse getAllPost(Integer pageNumber,Integer pageSize,String sortBy,String sortDir) {
-		//ternary operator implementation
+		//ternary operator implementation d
 		Sort sort=sortDir.equalsIgnoreCase("asc")?Sort.by(sortBy).ascending():Sort.by(sortBy).descending();
 		/*if(sortDir.equalsIgnoreCase("asc")){
-			sort=Sort.by(sortBy).ascending();
+			sort=Sort.by(sortBy).ascending(); 
 		}
 		else if(sortDir.equalsIgnoreCase("desc")){
 			sort=Sort.by(sortBy).descending();

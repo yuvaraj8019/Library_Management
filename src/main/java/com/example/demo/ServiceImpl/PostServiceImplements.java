@@ -25,6 +25,8 @@ import com.example.demo.Services.PostService;
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Post;
 import com.example.demo.entities.User;
+
+import net.bytebuddy.asm.Advice.This;
 @Service
 public class PostServiceImplements implements PostService {
 	@Autowired
@@ -153,9 +155,12 @@ public class PostServiceImplements implements PostService {
 
 	//sorting the posts
 	@Override
-	public List<Post> searchPost(String keyword) {
-
-		return null;
+	public List<PostDto> searchPost(String keyword) {
+		
+		
+		List<Post> posts = this.postRepo.findByTitleContaining(keyword);
+		List<PostDto> postDtos = posts.stream().map((post)->this.modelMapper.map(post, PostDto.class)).collect(Collectors.toList());
+		return postDtos;
 	}
 
 

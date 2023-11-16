@@ -61,11 +61,14 @@ public class PostController {
 	@GetMapping("/posts")
 	public ResponseEntity<PostResponse> getAllPosts(
 			@RequestParam (value="pageNumber",defaultValue="0",required=false) Integer pageNumber,
-			@RequestParam(value = "pageSize",defaultValue = "5",required = false) Integer pageSize
+			@RequestParam(value = "pageSize",defaultValue = "5",required = false) Integer pageSize,
+			@RequestParam(value  ="sortBy",defaultValue = "postId",required=false)String sortBy,
+			
+			@RequestParam(value = "sortDir",defaultValue = "asc",required = false)String sortDir
 			){
 	
 		
-		 PostResponse postResponse=this.postService.getAllPost(pageNumber,pageSize);
+		 PostResponse postResponse=this.postService.getAllPost(pageNumber,pageSize,sortBy,sortDir);
 		return new ResponseEntity<PostResponse>(postResponse,HttpStatus.OK);
 	}
 	//Get Post By Id
@@ -85,7 +88,7 @@ public class PostController {
 		return new ResponseEntity<ApiResponse>(new ApiResponse("post deleted successful",true),HttpStatus.OK);
 	}
 	
-	//Update post
+	//Update post 
 	@PostMapping("post/update/{postId}")
 	public ResponseEntity<PostDto> updatePost(@RequestBody PostDto postDto,@PathVariable Integer postId){
 		PostDto updatePost=this.postService.updatePost(postDto, postId);

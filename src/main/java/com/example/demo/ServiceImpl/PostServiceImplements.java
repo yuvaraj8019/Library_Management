@@ -85,7 +85,7 @@ public class PostServiceImplements implements PostService {
 		
 	}
 	
-	//pagination,sorting implemented for get all posts
+	//pagination,sorting with direction implemented for get all posts
 
 	@Override
 	public PostResponse getAllPost(Integer pageNumber,Integer pageSize,String sortBy,String sortDir) {

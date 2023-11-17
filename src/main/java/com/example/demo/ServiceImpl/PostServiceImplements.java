@@ -12,7 +12,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Exceptions.ResourceNotFoundException;
@@ -25,8 +24,6 @@ import com.example.demo.Services.PostService;
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Post;
 import com.example.demo.entities.User;
-
-import net.bytebuddy.asm.Advice.This;
 @Service
 public class PostServiceImplements implements PostService {
 	@Autowired

@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.example.demo.Payloads.PostDto;
 import com.example.demo.Payloads.PostResponse;
-import com.example.demo.entities.Post;
 
 public interface PostService {
 	

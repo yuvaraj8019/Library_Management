@@ -1,10 +1,12 @@
 package com.example.demo.Controllers;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.aspectj.weaver.NewConstructorTypeMunger;
 import org.modelmapper.internal.bytebuddy.implementation.bytecode.constant.DefaultValue;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,15 +17,18 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.Config.AppConstants;
 import com.example.demo.Payloads.ApiResponse;
 import com.example.demo.Payloads.PostDto;
 import com.example.demo.Payloads.PostResponse;
+import com.example.demo.Services.FileService;
 import com.example.demo.Services.PostService;
 import com.example.demo.entities.Post;
 import com.example.demo.entities.User;
 
+import lombok.val;
 import net.bytebuddy.asm.Advice.This;
 
 @SuppressWarnings("unused")
@@ -32,6 +37,10 @@ import net.bytebuddy.asm.Advice.This;
 public class PostController {
 	@Autowired
 	private PostService postService;
+	@Autowired
+	private FileService fileService;
+	@Value("${project.image}")
+	private String path;
 	
 	//create Post
 	
@@ -101,6 +110,18 @@ public class PostController {
 	public ResponseEntity<List<PostDto>> searchPost(@PathVariable("keyward") String keyword){
 		List<PostDto> searchposts = this.postService.searchPost(keyword);
 		return new ResponseEntity<List<PostDto>>(searchposts,HttpStatus.OK);
+		
+	}
+	
+	//upload post image
+	public ResponseEntity<PostDto> uploadPostImage(@RequestParam("image") MultipartFile image,@PathVariable Integer postId) throws IOException
+	{
+		String fileName=this.fileService.uploadImage(path, image);
+		PostDto postDto=this.postService.getPostById(postId);
+		postDto.setImageName(fileName);
+		PostDto updatePost=this.postService.updatePost(postDto, postId);
+		return new ResponseEntity<PostDto>(updatePost,HttpStatus.OK);
+		
 		
 	}
 	

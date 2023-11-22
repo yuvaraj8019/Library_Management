@@ -1,4 +1,4 @@
-package com.example.demo.Controllers;
+package com.example.demo.controllers;
 
 import java.util.List;
 
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.Payloads.ApiResponse;
-import com.example.demo.Payloads.CategoryDto;
 import com.example.demo.Services.CategoryService;
+import com.example.demo.payloads.ApiResponse;
+import com.example.demo.payloads.CategoryDto;
 
 @RestController
 @RequestMapping("/api/category")
@@ -31,7 +31,7 @@ public class CategoryController {
 	@PostMapping("/")
 	public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto){
 		CategoryDto createCategoryDto=this.categoryService.createCategory(categoryDto);
-		return new ResponseEntity<CategoryDto>(createCategoryDto,HttpStatus.CREATED);
+		return new ResponseEntity<>(createCategoryDto,HttpStatus.CREATED);
 	}
 	
 	//update category
@@ -40,7 +40,7 @@ public class CategoryController {
 	public ResponseEntity<CategoryDto> updateCategory(@Valid @RequestBody CategoryDto categoryDto,@PathVariable Integer catId){
 		
 		CategoryDto updatedCategory=this.categoryService.updateCategory(categoryDto, catId);
-		return new ResponseEntity<CategoryDto>(updatedCategory,HttpStatus.OK);
+		return new ResponseEntity<>(updatedCategory,HttpStatus.OK);
 	}
 	
 	//Delete Category
@@ -48,7 +48,7 @@ public class CategoryController {
 	public ResponseEntity<ApiResponse> deleteCategory(@PathVariable Integer catId){
 		
 		this.categoryService.deleteCategory(catId);
-		return new ResponseEntity<ApiResponse>(new ApiResponse("category deleted succesful",true),HttpStatus.OK);
+		return new ResponseEntity<>(new ApiResponse("category deleted succesful",true),HttpStatus.OK);
 	}
 	
 	//Get all categories

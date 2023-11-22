@@ -5,12 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Exceptions.ResourceNotFoundException;
-import com.example.demo.Payloads.CommentDto;
 import com.example.demo.Repositories.CommentRepo;
 import com.example.demo.Repositories.PostRepo;
 import com.example.demo.Services.CommentService;
 import com.example.demo.entities.Comment;
 import com.example.demo.entities.Post;
+import com.example.demo.payloads.CommentDto;
 @Service
 public class CommnetServiceImpl implements CommentService {
 

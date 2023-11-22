@@ -1,4 +1,4 @@
-package com.example.demo.Controllers;
+package com.example.demo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.Payloads.ApiResponse;
-import com.example.demo.Payloads.CommentDto;
 import com.example.demo.Services.CommentService;
+import com.example.demo.payloads.ApiResponse;
+import com.example.demo.payloads.CommentDto;
 
 @RestController
 @RequestMapping("/api/")

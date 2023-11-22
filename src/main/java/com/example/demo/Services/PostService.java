@@ -2,8 +2,8 @@ package com.example.demo.Services;
 
 import java.util.List;
 
-import com.example.demo.Payloads.PostDto;
-import com.example.demo.Payloads.PostResponse;
+import com.example.demo.payloads.PostDto;
+import com.example.demo.payloads.PostResponse;
 
 public interface PostService {
 	

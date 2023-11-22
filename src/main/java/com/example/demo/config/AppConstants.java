@@ -1,5 +1,8 @@
-package com.example.demo.Config;
+package com.example.demo.config;
 
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
 public class AppConstants {
 	
 	public static final String PAGE_NUMBER="0";

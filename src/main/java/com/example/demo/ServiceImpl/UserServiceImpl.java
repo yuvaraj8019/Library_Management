@@ -9,10 +9,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.Payloads.UserDto;
 import com.example.demo.Repositories.UserRepo;
 import com.example.demo.Services.UserService;
 import com.example.demo.entities.User;
+import com.example.demo.payloads.UserDto;
 @Service
 public class UserServiceImpl implements UserService{
 	

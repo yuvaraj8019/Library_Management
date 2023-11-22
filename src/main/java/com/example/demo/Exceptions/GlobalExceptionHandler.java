@@ -9,7 +9,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.example.demo.Payloads.ApiResponse;
+import com.example.demo.payloads.ApiResponse;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {

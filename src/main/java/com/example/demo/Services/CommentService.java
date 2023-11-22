@@ -1,6 +1,6 @@
 package com.example.demo.Services;
 
-import com.example.demo.Payloads.CommentDto;
+import com.example.demo.payloads.CommentDto;
 
 public interface CommentService {
 	

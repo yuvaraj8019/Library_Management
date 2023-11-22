@@ -15,8 +15,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Exceptions.ResourceNotFoundException;
-import com.example.demo.Payloads.PostDto;
-import com.example.demo.Payloads.PostResponse;
 import com.example.demo.Repositories.CategoryRepo;
 import com.example.demo.Repositories.PostRepo;
 import com.example.demo.Repositories.UserRepo;
@@ -24,6 +22,8 @@ import com.example.demo.Services.PostService;
 import com.example.demo.entities.Category;
 import com.example.demo.entities.Post;
 import com.example.demo.entities.User;
+import com.example.demo.payloads.PostDto;
+import com.example.demo.payloads.PostResponse;
 @Service
 public class PostServiceImplements implements PostService {
 	@Autowired

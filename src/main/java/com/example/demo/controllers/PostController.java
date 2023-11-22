@@ -1,4 +1,4 @@
-package com.example.demo.Controllers;
+package com.example.demo.controllers;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -25,14 +25,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.demo.Config.AppConstants;
-import com.example.demo.Payloads.ApiResponse;
-import com.example.demo.Payloads.PostDto;
-import com.example.demo.Payloads.PostResponse;
 import com.example.demo.Services.FileService;
 import com.example.demo.Services.PostService;
+import com.example.demo.config.AppConstants;
 import com.example.demo.entities.Post;
 import com.example.demo.entities.User;
+import com.example.demo.payloads.ApiResponse;
+import com.example.demo.payloads.PostDto;
+import com.example.demo.payloads.PostResponse;
 
 import lombok.val;
 import net.bytebuddy.asm.Advice.This;

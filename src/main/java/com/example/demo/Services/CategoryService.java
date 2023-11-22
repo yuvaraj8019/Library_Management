@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.Payloads.CategoryDto;
+import com.example.demo.payloads.CategoryDto;
 
 
 public interface CategoryService {

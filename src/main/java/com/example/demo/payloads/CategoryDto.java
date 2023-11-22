@@ -1,4 +1,4 @@
-package com.example.demo.Payloads;
+package com.example.demo.payloads;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;

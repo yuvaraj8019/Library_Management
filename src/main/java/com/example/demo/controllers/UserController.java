@@ -1,4 +1,4 @@
-package com.example.demo.Controllers;
+package com.example.demo.controllers;
 
 import java.util.List;
 import java.util.Map;
@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.Payloads.ApiResponse;
-import com.example.demo.Payloads.UserDto;
 import com.example.demo.Services.UserService;
+import com.example.demo.payloads.ApiResponse;
+import com.example.demo.payloads.UserDto;
 
 @SuppressWarnings("unused")
 @RestController

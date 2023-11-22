@@ -2,7 +2,7 @@ package com.example.demo.Services;
 
 import java.util.List;
 
-import com.example.demo.Payloads.UserDto;
+import com.example.demo.payloads.UserDto;
 
 public interface UserService {
 

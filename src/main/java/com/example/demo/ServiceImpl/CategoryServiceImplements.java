@@ -9,15 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Exceptions.ResourceNotFoundException;
-import com.example.demo.Payloads.CategoryDto;
 import com.example.demo.Repositories.CategoryRepo;
 import com.example.demo.Services.CategoryService;
 import com.example.demo.entities.Category;
+import com.example.demo.payloads.CategoryDto;
 
+import lombok.NoArgsConstructor;
 import net.bytebuddy.asm.Advice.This;
 @SuppressWarnings("unused")
 @Service
-
+@NoArgsConstructor
 public class CategoryServiceImplements implements CategoryService{
 	
 	@Autowired
@@ -48,7 +49,7 @@ public class CategoryServiceImplements implements CategoryService{
 
 	@Override
 	public void deleteCategory(Integer categoryId) {
-		// TODO Auto-generated method stub
+
 		Category cat=this.categoryRepo.findById(categoryId).
 				orElseThrow(()->new ResourceNotFoundException("category", "category Id", categoryId));
 		this.categoryRepo.delete(cat);
